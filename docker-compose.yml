@@ -3,20 +3,17 @@ version: '3.5'
 services:
 
   frontend:
-    build: ./frontend
-    image: three-tier-app-ubuntu-frontend:latest
+    image: martendocker/three-tier-app-ubuntu-frontend:latest
     command:
       - "ping database"
 
   database:
-    build: ./database
-    image: three-tier-app-ubuntu-database:latest
+    image: martendocker/three-tier-app-ubuntu-database:latest
     command:
       - "ping 127.0.0.1"
     
   worker:
-    build: ./worker
-    image: three-tier-app-ubuntu-worker:latest
+    image: martendocker/three-tier-app-ubuntu-worker:latest
     command:
       - "ping database"
     
