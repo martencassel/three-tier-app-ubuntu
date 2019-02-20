@@ -3,14 +3,17 @@ version: '3.5'
 services:
 
   frontend:
-    image: martendocker/three-tier-app-ubuntu-frontend:latest
-    command: ["ping", "database"]
+    image: nginx:latest
+    ports:
+      - "80:80"
 
   database:
+    build: ./database
     image: martendocker/three-tier-app-ubuntu-database:latest
     command: ["ping", "localhost"]
     
   worker:
+    build: ./worker
     image: martendocker/three-tier-app-ubuntu-worker:latest
     command: ["ping", "database"]
     
